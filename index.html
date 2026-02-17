@@ -3,51 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fullscreen Game Player</title>
-    <style>
-        body {
-            margin: 0;
-            display: flex;
-            flex-direction: row;
-            height: 100vh;
-            font-family: Arial, sans-serif;
-        }
-        .sidebar {
-            width: 200px;
-            background: #f4f4f4;
-            padding: 20px;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-        }
-        .game-player {
-            flex-grow: 1;
-            background: #000;
-        }
-        .sidebar h2 {
-            margin: 0 0 15px;
-            font-size: 20px;
-            color: #333;
-        }
-        .sidebar a {
-            display: block;
-            margin-bottom: 10px;
-            text-decoration: none;
-            color: #007BFF;
-        }
-        .sidebar a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <title>Your Web Page</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="sidebar">
-        <h2>Game Options</h2>
-        <a href="#">Start Game</a>
-        <a href="#">Settings</a>
-        <a href="#">High Scores</a>
-        <a href="#">Help</a>
+        <!-- Sidebar content goes here -->
+        <h2>Sidebar</h2>
+        <p>Links</p>
     </div>
-    <div class="game-player">
-        <iframe src="your-game-url-here" style="width:100%; height:100%; border:none;" allowfullscreen></iframe>
+    <div class="content">
+        <h1>Unity WebGL Player</h1>
+        <div id="unity-player">
+            <canvas id="unity-canvas" width="960" height="600"></canvas>
+            <script src="Build/UnityLoader.js"></script>
+            <script>
+                var gameInstance = UnityLoader.instantiate("unity-canvas", "Build/YourGame.json");
+            </script>
+        </div>
     </div>
 </body>
 </html>
